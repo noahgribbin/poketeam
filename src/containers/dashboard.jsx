@@ -1,12 +1,8 @@
 import React from 'react'
 import getPokemonRequest from '../actions/pokemonActions'
-import connect from 'react-redux'
+import {connect} from 'react-redux'
 
 class Dashboard extends React.Component {
-  componentWillMount(){
-    console.log('mounting');
-    console.log(this.props);
-  }
   render(){
     return(
       <div>
@@ -17,11 +13,11 @@ class Dashboard extends React.Component {
   }
 }
 
-let mapStateToProps = state => ({
+const mapStateToProps = state => ({
   pokemon: state.pokemon
 })
 
-let mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   getPokemonRequest: () => dispatch(getPokemonRequest())
 })
 
