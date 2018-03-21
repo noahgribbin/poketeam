@@ -5,8 +5,9 @@ const initialState = {
 export default function pokemonReducer(state = initialState, action){
   switch(action.type){
     case 'GET_POKEMON':
+    console.log('in get pokemon')
      return Object.assign({}, state, {
-      poekmon: action.payload
+      pokemon: action.payload
     })
     default: return state
   }
