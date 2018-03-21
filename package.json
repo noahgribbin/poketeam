@@ -21,6 +21,7 @@
   "homepage": "https://github.com/noahgribbin/poketeam#readme",
   "dependencies": {
     "babel-preset-es2018": "^1.0.0",
+    "cors": "^2.8.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.7",
     "react": "^16.2.0",

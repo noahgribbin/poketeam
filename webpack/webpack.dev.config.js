@@ -2,6 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const cors = require('cors')
 
 const config = {
   entry: `${__dirname}/../index.js`,
