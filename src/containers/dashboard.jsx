@@ -1,5 +1,5 @@
 import React from 'react'
-import getPokemonRequest from '../actions/pokemonActions'
+import { getPokemonRequest } from '../actions/pokemonActions'
 import {connect} from 'react-redux'
 
 class Dashboard extends React.Component {
