@@ -2,6 +2,8 @@ import React from 'react'
 import { getPokemonRequest, getLocationRequest } from '../actions/pokemonActions'
 import {connect} from 'react-redux'
 
+import Location from '../components/location.jsx'
+
 class Dashboard extends React.Component {
   constructor(props){
     super(props)
@@ -22,11 +24,12 @@ class Dashboard extends React.Component {
           <div>
             <p>{this.props.pokemon.name}</p>
             <img src={this.props.pokemon.sprites.front_default}></img>
-            <p>aaa{this.props.pokemon.location_area_encounters}</p>
-            <button onClick={this.handleLocation(this.props.pokemon.location_area_encounters)}>Location</button>
+            <button onClick={() => {this.handleLocation(this.props.pokemon.location_area_encounters)}}>Location</button>
             {this.props.location ?
-              <p>{this.props.location}</p>
-            : undefined}
+              this.props.location.map(location =>
+                <Location location={location}/>
+              )
+            :undefined}
           </div>
 
           : undefined}
@@ -43,7 +46,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getPokemonRequest: () => dispatch(getPokemonRequest()),
-  getLocationRequest: () => dispatch(getLocationRequest)
+  getLocationRequest: (url) => dispatch(getLocationRequest(url))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

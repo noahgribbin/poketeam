@@ -30,14 +30,14 @@ export const getLocation = pokemon => ({
 })
 export const fetchLocation = (locationUrl) => {
   console.log('in fetchLocation',locationUrl);
-  return superagent.get(`https://pokeapi.co${locationUrl}`)
+  return superagent.get(`https://pokeapi.co/${locationUrl}`)
 }
 export const getLocationRequest = (locationUrl) => {
   console.log('in getLocationRequest', locationUrl);
   return function(dispatch){
     return fetchLocation(locationUrl)
     .then(res => {
-      console.log(res.body);
+      console.log('get location res.body', res.body);
       dispatch(getLocation(res.body))
       return res.body
     })
